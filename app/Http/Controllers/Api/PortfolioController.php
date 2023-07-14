@@ -15,7 +15,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $portfolios = Portfolio::with('type', 'technologies')->paginate(5);
+
+        return response()->json($portfolios);
     }
 
     /**
