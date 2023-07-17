@@ -3,7 +3,10 @@
 @section('contents')
 <div class="cards-container d-flex justify-content-center">
     <div class="card m-4" style="width: 25rem;">
-        <img src="{{$portfolio->url_image}}" class="card-img-top" alt="{{$portfolio->name}}">
+        {{-- <img src="{{$portfolio->image}}" class="card-img-top" alt="{{$portfolio->name}}"> --}}
+        @if ($portfolio->image)
+          <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->name }}">
+        @endif
         <div class="card-body">
           <h2>Tipo: {{$portfolio->type->name}} </h2>
           <h3>Tecnologia: {{ implode(', ', $portfolio->technologies->pluck('name')->all()) }}</h3>

@@ -78,7 +78,7 @@ class PortfolioController extends Controller
         // }
 
         if ($request->has('image')) {
-            $imagePath = Storage::put('uploads', $data['image']);
+            $imagePath = Storage::disk('public')->put('uploads', $data['image']);
         }
 
         // salvare i dati nel db se validi
@@ -143,7 +143,7 @@ class PortfolioController extends Controller
 
         if (isset($data['image'])) {
             // salvare l'immagine nuova
-            $imagePath = Storage::put('uploads', $data['image']);
+            $imagePath = Storage::disk('public')->put('uploads', $data['image']);
 
             // eliminare l'immagine vecchia
             if ($portfolio->image) {
