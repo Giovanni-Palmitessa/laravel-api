@@ -28,6 +28,6 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
-        //
+        return response()->json($portfolio);
     }
 }
