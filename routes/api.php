@@ -20,4 +20,5 @@ use App\Http\Controllers\Api\PortfolioController;
 // });
 
 Route::get('portfolios', [PortfolioController::class, 'index'])->name('api.portfolios.index');
+Route::get('portfolios/random', [PortfolioController::class, 'random'])->name('api.portfolios.random');
 Route::get('portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('api.portfolios.show');
