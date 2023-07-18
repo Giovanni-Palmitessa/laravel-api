@@ -29,10 +29,11 @@ class PortfolioController extends Controller
      * @param  \App\Models\Portfolio  $portfolio
      * @return \Illuminate\Http\Response
      */
-    public function show(Portfolio $portfolio)
+    public function show ($id)
     {
+        $portfolio = Portfolio::where('id', $id)->first();
         return response()->json([
             'success' => $portfolio ? true : false,
-            'results' => $portfolio,]);
+            'results' => $portfolio]);
     }
 }
