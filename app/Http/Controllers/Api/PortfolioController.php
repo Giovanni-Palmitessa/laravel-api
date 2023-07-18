@@ -36,4 +36,13 @@ class PortfolioController extends Controller
             'success' => $portfolio ? true : false,
             'results' => $portfolio]);
     }
+
+    public function random() {
+        $portfolios = Portfolio::inRandomOrder()->limit(9)->get();
+
+        return response()->json([
+            'success'   => true,
+            'results'   => $portfolios,
+        ]);
+    }
 }
