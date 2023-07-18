@@ -13,8 +13,12 @@ class PortfolioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // filtro risultati
+        // gestione paramentro q
+        $request->query('q', '');
+
         $portfolios = Portfolio::with('type', 'technologies')->paginate(5);
 
         return response()->json([
