@@ -17,7 +17,10 @@ class PortfolioController extends Controller
     {
         $portfolios = Portfolio::with('type', 'technologies')->paginate(5);
 
-        return response()->json($portfolios);
+        return response()->json([
+            'success' => true,
+            'results' => $portfolios,
+        ]);
     }
 
     /**
@@ -28,6 +31,8 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
-        return response()->json($portfolio);
+        return response()->json([
+            'success' => $portfolio ? true : false,
+            'results' => $portfolio,]);
     }
 }
