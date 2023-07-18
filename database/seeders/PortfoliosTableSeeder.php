@@ -29,7 +29,7 @@ class PortfoliosTableSeeder extends Seeder
                 'name' => Str::ucfirst($name),
                 'client_name' => $faker->words(2, true),
                 'url_image' => 'https://picsum.photos/id/' . rand(1, 270) . '/500/400',
-                'image' => $imageIndex ? 'uploads/picsum' . $imageIndex : null,
+                'image' => $imageIndex ? 'uploads/picsum' . $imageIndex . '.jpg' : null,
                 'pickup_date' => $faker->date(),
                 'deploy_date' => $faker->date(),
                 'description' => $faker->paragraphs(rand(2, 20), true),
