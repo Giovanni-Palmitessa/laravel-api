@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\PortfolioController;
 
 /*
@@ -23,4 +24,4 @@ Route::get('portfolios', [PortfolioController::class, 'index'])->name('api.portf
 Route::get('portfolios/random', [PortfolioController::class, 'random'])->name('api.portfolios.random');
 Route::get('portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('api.portfolios.show');
 
-Route::get('types', [typeController::class, 'index'])->name('api.types.index');
+Route::get('types', [TypeController::class, 'index'])->name('api.types.index');
