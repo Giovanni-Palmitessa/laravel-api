@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class LeadController extends Controller
 {
     private $validations = [
-        'name' => 'required|string|max:50',
+        'name' => 'required|string|max:50|min:5',
         'email' => 'required|email|max:255',
         'message' => 'required|string',
         'newsletter' => 'required|boolean',
