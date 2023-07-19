@@ -19,8 +19,8 @@ class PortfolioController extends Controller
         // gestione paramentro q
         $searchString = $request->query('q', '');
 
-        // $portfolios = Portfolio::with('type', 'technologies')->where('title', 'LIKE', '%' . $searchString . '%')->paginate(6);
-        $portfolios = Portfolio::with('type', 'technologies')->paginate(6);
+        $portfolios = Portfolio::with('type', 'technologies')->where('name', 'LIKE', '%' . $searchString . '%')->paginate(6);
+        // $portfolios = Portfolio::with('type', 'technologies')->paginate(6);
 
         return response()->json([
             'success' => true,
