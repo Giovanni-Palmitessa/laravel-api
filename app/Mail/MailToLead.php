@@ -34,7 +34,7 @@ class MailToLead extends Mailable
     {
         return new Envelope(
             replyTo: $this->lead->email,
-            subject: 'Richiesta di informazioni ricevuta ' . $this->lead->name . ':)',
+            subject: 'Richiesta di informazioni ricevuta da ' . $this->lead->name . ':)',
         );
     }
 
