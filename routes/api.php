@@ -25,3 +25,5 @@ Route::get('portfolios/random', [PortfolioController::class, 'random'])->name('a
 Route::get('portfolios/{portfolio}', [PortfolioController::class, 'show'])->name('api.portfolios.show');
 
 Route::get('types', [TypeController::class, 'index'])->name('api.types.index');
+
+Route::post('contact', [TypeController::class, 'index'])->name('api.types.index');
