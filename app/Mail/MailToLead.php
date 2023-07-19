@@ -13,14 +13,16 @@ class MailToLead extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $lead;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($lead)
     {
-        //
+        $this->lead = $lead;
     }
 
     /**
@@ -31,7 +33,8 @@ class MailToLead extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Mail To Lead',
+            replyTo: $this->lead->adress,
+            subject: 'Richiesta di informazioni ricevuta ' . $this->lead->name . ':)',
         );
     }
 
