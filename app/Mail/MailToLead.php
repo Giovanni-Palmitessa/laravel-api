@@ -46,7 +46,7 @@ class MailToLead extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.mail-to-lead',
         );
     }
 
