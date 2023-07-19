@@ -4,13 +4,20 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Lead;
 use App\Mail\MailToLead;
+use App\Mail\MailToAdmin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Mail\MailToAdmin;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class LeadController extends Controller
 {
+    private $validations = [
+        'name' => 'required|string|max:50',
+        'email' => 'required|email|max:255',
+        'message' => 'required|string',
+        'newsletter' => 'required|boolean',
+    ];
     
     /**
      * Store a newly created resource in storage.
@@ -21,11 +28,18 @@ class LeadController extends Controller
     public function store(Request $request)
     {
         // return response()->json($request->all()); solo per testare
-
+        $data = $request->all();
         // validare i dati del lead
+        $validator = Validator::make($data, $this->validations);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success'   => false,
+                'errors'    => $validator->errors(),
+            ]);
+        }
 
         // salvare i dati del lead nel database
-        $data = $request->all();
 
         $newLead = new Lead();
         $newLead->email = $data['email'];
