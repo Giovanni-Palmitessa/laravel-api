@@ -39,7 +39,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::paginate(10);
+        $portfolios = Portfolio::all();
 
         return view('admin.portfolios.index', compact('portfolios'));
     }
